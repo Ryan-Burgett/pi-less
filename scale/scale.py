@@ -69,9 +69,9 @@ while True:
         if average < MIN_WEIGHT:
             min_count += 1
 
-            if min_count > 10:
+            if min_count > 20:
                 print("Scale is below designated weight: Processing Order...")
-                cleanAndExit()
+                raise KeyboardInterrupt
         else:
             min_count = 0
 
