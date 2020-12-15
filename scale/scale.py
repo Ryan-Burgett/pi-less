@@ -44,7 +44,7 @@ while True:
     try:
         # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
 
-        if(len(weights) >= 20):
+        if len(weights) >= 20:
             weights.pop()
 
         weights.append(hx.get_weight(5))
@@ -52,10 +52,8 @@ while True:
         average = sum(weights) / len(weights)
 
         print(weights)
-        print("Lenght: " + len(weights))
+        print("Lenght: " + str(len(weights)))
         print(average)
-
-
 
         hx.power_down()
         hx.power_up()
