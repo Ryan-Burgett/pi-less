@@ -2,10 +2,13 @@
 
 import time
 import sys
+import requests
 
 EMULATE_HX711=False
 
 referenceUnit = 533
+
+URL = "http://127.0.0.1:5000/"
 
 if not EMULATE_HX711:
     import RPi.GPIO as GPIO
@@ -35,11 +38,22 @@ hx.tare()
 
 print("Tare done! Add weight now...")
 
+weights = [hx.get_weight(5)]
+
 while True:
     try:
         # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
-        val = hx.get_weight(5)
-        print(val)
+
+        if(len(weights) >= 20):
+            weights.pop()
+
+        weights.append(hx.get_weight(5))
+
+        average = sum(weights) / len(weights)
+
+        print(average)
+
+
 
         hx.power_down()
         hx.power_up()
