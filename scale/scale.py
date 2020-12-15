@@ -51,6 +51,8 @@ while True:
 
         average = sum(weights) / len(weights)
 
+        print(weights)
+        print("Lenght: " + len(weights))
         print(average)
 
 
