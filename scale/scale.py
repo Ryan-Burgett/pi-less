@@ -45,7 +45,7 @@ while True:
         # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
 
         if len(weights) >= 20:
-            weights.pop()
+            weights.pop(0)
 
         weights.append(hx.get_weight(5))
 
